@@ -8,5 +8,6 @@ interface Repo {
     val forks: Int
     val Stars: Int
     val repoOwnerId: Int
+    val repoOwner: RepoOwner
 
 }
