@@ -17,7 +17,7 @@ object apiPullsModule {
     @Provides
     @Singleton
     fun baseUrl(): String{
-        return "https://api.github.com/repos/"
+        return "https://api.github.com/"
     }
 
     @Provides
