@@ -17,7 +17,7 @@ object apiRepoModule {
     @Provides
     @Singleton
     fun baseUrl(): String{
-        return "https://api.github.com/search/repositories?q=language:Java&sort=stars&page=1"
+        return "https://api.github.com/"
     }
 
     @Provides

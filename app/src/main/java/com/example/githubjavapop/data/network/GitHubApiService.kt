@@ -6,7 +6,7 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface RepoApiService {
+interface GitHubApiService {
 
     @GET("search/repositories?q=language:Java&sort=stars")
     suspend fun getRepositories():Response<List<RepoModel>>

@@ -2,11 +2,11 @@ package com.example.githubjavapop.data.model.retrofit
 
 data class prueba(
     val incomplete_results: Boolean,
-    val items: List<Item>,
+    val items: List<Item1>,
     val total_count: Int
 )
 
-data class Item(
+data class Item1(
     val allow_forking: Boolean,
     val archive_url: String,
     val archived: Boolean,
