@@ -9,7 +9,7 @@ import retrofit2.http.Path
 interface GitHubApiService {
 
     @GET("search/repositories?q=language:Java&sort=stars")
-    suspend fun getRepositories():Response<List<RepoModel>>
+    suspend fun getRepositories(): Response<List<RepoModel>>
 
     @GET("repos/{user}/{repo}/pulls")
     suspend fun getPullRequest(@Path("user") user: String, @Path("repo") repo: String): Response<List<PullsModel>>
