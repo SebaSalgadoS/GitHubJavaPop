@@ -4,18 +4,18 @@ import android.widget.Toast
 import com.example.githubjavapop.data.model.retrofit.Repo
 import com.example.githubjavapop.data.model.retrofit.RepoModel
 import com.example.githubjavapop.data.network.GitHubApiService
+import com.example.githubjavapop.di.ApiRepoModule
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import retrofit2.Call
 
-class GetRepoUserCase(private val repoAPi: GitHubApiService) {
+class GetRepoUserCase {
 
-    suspend fun getAllRepos() {
-        return withContext(Dispatchers.IO){
-            val response = repoAPi.getRepositories()
-            if(response.isSuccessful){
-                val repos = response.body()?: emptyList()
-                repos
-            }
-        }
+    suspend fun traerRepos(): RepoModel? {
+        val llamada: GitHubApiService = ApiRepoModule.retrofit(ApiRepoModule.baseUrl()).create(GitHubApiService::class.java)
+        val resultado: Call<RepoModel> = llamada.getRepositories()
+        val p: RepoModel? = resultado.execute().body()
+
+        return p
     }
 }
