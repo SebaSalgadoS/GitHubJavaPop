@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubjavapop.R
 import com.example.githubjavapop.data.model.retrofit.Item
@@ -22,6 +23,10 @@ class RepoAdapter(private val datos: List<Item>): RecyclerView.Adapter<RepoAdapt
         val txtRepoStars: TextView
         val txtRepoUsername: TextView
         val imgRepoUser: ImageView
+        val repoContent: CardView
+
+        // evento onClick y crear un listener
+        // viewbinding
 
         init{
             txtRepoName = view.findViewById(R.id.txtRepoName)
@@ -30,6 +35,7 @@ class RepoAdapter(private val datos: List<Item>): RecyclerView.Adapter<RepoAdapt
             txtRepoStars = view.findViewById(R.id.txtRepoStars)
             txtRepoUsername = view.findViewById(R.id.txtRepoUsername)
             imgRepoUser =view.findViewById(R.id.imgRepoUser)
+            repoContent = view.findViewById(R.id.repoContent)
         }
 
     }
@@ -47,6 +53,14 @@ class RepoAdapter(private val datos: List<Item>): RecyclerView.Adapter<RepoAdapt
         holder.txtRepoFork.text = repo.forks.toString()
         holder.txtRepoStars.text = repo.stars.toString()
         holder.txtRepoUsername.text = repo.repoOwner.ownerName
+
+        holder.repoContent.setOnClickListener {
+            // evento onClick y crear un listener
+            // abrir pull request
+            // pasar el repo y login user
+        }
+
+        // implementar imagen por defecto si no viene imagen (complementario)
 
         Picasso.get().load(repo.repoOwner.ownerAvatar).into(holder.imgRepoUser)
 

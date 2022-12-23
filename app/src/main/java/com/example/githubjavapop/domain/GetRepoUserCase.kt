@@ -11,11 +11,12 @@ import retrofit2.Call
 
 class GetRepoUserCase {
 
+    // cambiar los nombres a ingles y usar nombre mas descriptivos
+
     suspend fun traerRepos(): RepoModel? {
         val llamada: GitHubApiService = ApiRepoModule.retrofit(ApiRepoModule.baseUrl()).create(GitHubApiService::class.java)
         val resultado: Call<RepoModel> = llamada.getRepositories()
         val p: RepoModel? = resultado.execute().body()
-
         return p
     }
 }

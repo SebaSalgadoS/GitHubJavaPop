@@ -8,5 +8,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // (1) usar navigation de jetpack para los fragmentos
+
+
     }
 }

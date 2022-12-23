@@ -1,5 +1,6 @@
 package com.example.githubjavapop.data.model.retrofit
 
+// checkear como implementarlo con Juli y Gerardo
 interface Repo {
 
     val idRepo: Int
