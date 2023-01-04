@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/fragmentRepoView"
+        android:name="com.example.githubjavapop.ui.view.FragmentRepoView"
+        android:label="FragmentRepoView" >
+        <action
+            android:id="@+id/action_fragmentRepoView_to_fragmentPullsView"
+            app:destination="@id/fragmentPullsView" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPullsView"
+        android:name="com.example.githubjavapop.ui.view.FragmentPullsView"
+        android:label="fragment_pulls_view"
+        tools:layout="@layout/fragment_pulls_view" >
+        <action
+            android:id="@+id/action_fragmentPullsView_to_fragmentRepoView"
+            app:destination="@id/fragmentRepoView" />
+    </fragment>
+</navigation>

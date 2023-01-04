@@ -16,7 +16,7 @@ class FragmentRepoView : Fragment() {
     // (2) hacer la logica de recycler con el adaptador
     // (3) crear el viewModel del fragment
     // (complementario) usar safeArg para pasar datos al sig fragment (depende del api)
-    // (complementario)usar bundle para pasar valores
+    // (complementario) usar bundle para pasar valores
     //(4) implementar sealed class para menajar los errores
 
     override fun onCreate(savedInstanceState: Bundle?) {

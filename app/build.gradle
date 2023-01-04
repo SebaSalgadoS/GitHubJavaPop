@@ -33,6 +33,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -46,11 +50,19 @@ dependencies {
     // varible para la version de fragment
     def fragment_version = "1.5.5"
 
+    // version fragment navigation
+    def nav_version = "2.5.3"
+
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     //fragment
+
+    // Kotlin
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
 
     // Kotlin
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
