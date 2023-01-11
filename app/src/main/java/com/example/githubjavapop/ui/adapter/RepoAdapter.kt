@@ -9,6 +9,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubjavapop.R
 import com.example.githubjavapop.data.model.retrofit.Item
+import com.example.githubjavapop.data.model.retrofit.RepoModel
 import com.squareup.picasso.Picasso
 
 class RepoAdapter(private val datos: List<Item>): RecyclerView.Adapter<RepoAdapter.ViewHolder>() {
