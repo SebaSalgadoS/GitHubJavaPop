@@ -1,5 +1,6 @@
 package com.example.githubjavapop.di
 
+import com.example.githubjavapop.data.network.GitHubApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,5 +33,11 @@ object ApiRepoModule {
             .client(client)
             .build()
         return retrofit
+    }
+
+    @Provides
+    @Singleton
+    fun provideGitHubApiService(retrofit: Retrofit): GitHubApiService{
+        return retrofit.create(GitHubApiService::class.java)
     }
 }
