@@ -1,5 +1,6 @@
 package com.example.githubjavapop.di
 
+import com.example.githubjavapop.BuildConfig
 import com.example.githubjavapop.data.network.GitHubApiService
 import dagger.Module
 import dagger.Provides
@@ -15,20 +16,15 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object ApiRepoModule {
 
-    @Provides
-    @Singleton
-    fun baseUrl(): String{
-        return "https://api.github.com/"
-    }
 
     @Provides
     @Singleton
-    fun retrofit(baseUrl: String): Retrofit{
+    fun retrofit(): Retrofit{
         val interceptor = HttpLoggingInterceptor()
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
         val retrofit = Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
