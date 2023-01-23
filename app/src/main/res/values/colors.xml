@@ -10,4 +10,5 @@
     <color name="azul_marino">#00304E</color>
     <color name="github_background">#161b22</color>
     <color name="cardview_background">#eae6ca</color>
+    <color name="white_signal">#f4f4f4</color>
 </resources>
