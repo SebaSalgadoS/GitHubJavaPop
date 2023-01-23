@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.githubjavapop.R
 import com.example.githubjavapop.data.model.retrofit.RepoItems
 
-class RepoAdapter(private val items: List<RepoItems>): RecyclerView.Adapter<RepoViewHolder>() {
+class RepoAdapter(private val items: List<RepoItems>, private val onClickListener:(RepoItems) -> Unit): RecyclerView.Adapter<RepoViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoViewHolder {
@@ -16,9 +16,8 @@ class RepoAdapter(private val items: List<RepoItems>): RecyclerView.Adapter<Repo
 
     override fun onBindViewHolder(viewHolder: RepoViewHolder, position: Int) {
         val repo = items.get(position)
-        viewHolder.initViewHolder(repo)
+        viewHolder.initViewHolder(repo, onClickListener)
     }
-
     override fun getItemCount(): Int {
         return items.size
     }
