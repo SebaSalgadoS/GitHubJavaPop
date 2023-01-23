@@ -20,7 +20,7 @@ class RepoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val repoContent = binding.repoContent
 
 
-    fun initViewHolder(repo: RepoItems) {
+    fun initViewHolder(repo: RepoItems,onClickListener:(RepoItems) -> Unit) {
 
         txtRepoName.text = repo.repoName
         txtRepoDescription.text = repo.repoDescription
@@ -28,7 +28,9 @@ class RepoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         txtRepoStars.text = repo.stars.toString()
         txtRepoUsername.text = repo.repoOwner.ownerName
 
-        repoContent.setOnClickListener {}
+        repoContent.setOnClickListener {
+            onClickListener(repo)
+        }
 
         Picasso.get().load(repo.repoOwner.ownerAvatar).into(imgRepoUser)
 
