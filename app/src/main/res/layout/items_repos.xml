@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
+    android:backgroundTint="@color/white_signal"
     app:cardCornerRadius="10dp"
     app:cardUseCompatPadding="true"
     app:cardElevation="2dp"
@@ -35,14 +36,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:text="Nombre Repositorio"
-                android:textStyle="bold"/>
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/azul_marino"/>
 
             <TextView
                 android:id="@+id/txtRepoDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="Descripcion Repositorio"/>
+                android:text="Descripcion Repositorio"
+                android:textSize="12sp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -56,15 +60,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
+                    android:drawableStart="@drawable/ic_fork"
+                    android:drawablePadding="5dp"
                     android:text="Forks"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:textColor="@color/azul_marino"
+                    android:textSize="13sp"/>
 
                 <TextView
                     android:id="@+id/txtRepoStars"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_star"
+                    android:drawablePadding="5dp"
                     android:text="Stars"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:textColor="@color/azul_marino"
+                    android:textSize="13sp"/>
 
             </LinearLayout>
 
@@ -90,7 +102,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_gravity="center_horizontal"
-                android:text="Username"/>
+                android:text="Username"
+                android:textSize="10sp"
+                android:textColor="@color/azul_marino"
+                android:textStyle="bold"/>
         </LinearLayout>
     </LinearLayout>
 
