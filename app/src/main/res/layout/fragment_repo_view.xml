@@ -7,6 +7,30 @@
     android:background="@color/github_background"
     tools:context="ui.view.FragmentRepoView">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/myToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/azul_marino"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iconApp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/github_mark_white"/>
+
+        <TextView
+            android:id="@+id/viewTittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="GitHubJavaPop - Repositories"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/repoRecyclerView"
         android:layout_width="0dp"
@@ -19,6 +43,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/myToolbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

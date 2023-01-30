@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_200"
+    android:background="@color/github_background"
     tools:context=".ui.view.FragmentPullsView">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -20,10 +20,18 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_back"/>
 
+        <ImageView
+            android:id="@+id/iconApp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/github_mark_white"/>
+
         <TextView
             android:id="@+id/viewTittle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:text="Titulo"
             android:textStyle="bold"
             android:textColor="@color/white"/>
@@ -45,15 +53,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/myToolbar" />
 
-    <TextView
-        android:id="@+id/txtPrueba"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="174dp"
-        android:layout_marginTop="332dp"
-        android:text="prueba"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
