@@ -6,8 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.githubjavapop.R
 import com.example.githubjavapop.data.model.retrofit.PullsModel
 
-class PullsAdapter(private val items: List<PullsModel>, private val onClickListener:(PullsModel) -> Unit): RecyclerView.Adapter<PullsViewHolder>() {
+class PullsAdapter( private val onClickListener:(PullsModel) -> Unit): RecyclerView.Adapter<PullsViewHolder>() {
 
+    val items : MutableList<PullsModel> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PullsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.items_pulls_repo, parent, false)
@@ -21,5 +22,10 @@ class PullsAdapter(private val items: List<PullsModel>, private val onClickListe
 
     override fun getItemCount(): Int {
         return items.size
+    }
+
+    fun updateAdapter(newItems: List<PullsModel>){
+        items += newItems
+        notifyDataSetChanged()
     }
 }
