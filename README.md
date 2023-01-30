@@ -21,3 +21,7 @@ para ver los requisitos de aceptacion pueden revisarlos en el siguiente reposito
 > - **Hilt**: Injeccion de dependencias dentro de mi proyecto
 > - **Jetpack Navigation**: Gestionar la navegacion entre Fragmentos y el paso de argumentos entre ellos
 > - **Picasso**: Gestionar el material visual dentro del proyecto en este caso los avatar
+
+### Arquitectura 
+
+**Para esta proyecto estoy usando el patron de arquitecuta MVVM ( Model - View - ViewModel)**
