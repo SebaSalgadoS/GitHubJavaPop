@@ -2,7 +2,6 @@ package com.example.githubjavapop.data.model.retrofit
 
 import com.google.gson.annotations.SerializedName
 
-
 data class PullsModel(
     @SerializedName("title") val pullTitle: String,
     @SerializedName("body") val pullBody: String,
