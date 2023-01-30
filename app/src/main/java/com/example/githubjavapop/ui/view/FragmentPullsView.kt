@@ -1,7 +1,6 @@
 package com.example.githubjavapop.ui.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +15,9 @@ import com.example.githubjavapop.data.model.retrofit.PullsModel
 import com.example.githubjavapop.databinding.FragmentPullsViewBinding
 import com.example.githubjavapop.ui.adapter.PullsAdapter
 import com.example.githubjavapop.ui.viewmodel.FragmentPullsViewModel
+import com.example.githubjavapop.utils.ERROR_STATE
+import com.example.githubjavapop.utils.LOADING_STATE
+import com.example.githubjavapop.utils.SUCCESS_STATE
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,7 +34,6 @@ class FragmentPullsView : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         return binding.root
 
     }
@@ -51,12 +52,14 @@ class FragmentPullsView : Fragment() {
         pullViewModel.pullsRequestModel.observe(viewLifecycleOwner, Observer { state->
             when(state){
                 is ApiState.Loading -> {
-                    //TODO agregar elemento de carga
+                   binding.viewFlipper.displayedChild = LOADING_STATE
                 }
                 is ApiState.Error -> {
-                    Log.e("ERROR FRAGMENTO PULLS", state.error)
+                    binding.viewFlipper.displayedChild = ERROR_STATE
+                    binding.txtError.text = state.error
                 }
                 is ApiState.Success -> {
+                    binding.viewFlipper.displayedChild = SUCCESS_STATE
                     pullsAdapter.updateAdapter(state.value)
                 }
             }
@@ -67,7 +70,7 @@ class FragmentPullsView : Fragment() {
     }
 
     private fun onItemSelected(pulls: PullsModel) {
-
+        //TODO pasar a pantalla webView
     }
 
 }
