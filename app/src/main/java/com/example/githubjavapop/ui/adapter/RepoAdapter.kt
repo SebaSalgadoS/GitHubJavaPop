@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.githubjavapop.R
 import com.example.githubjavapop.data.model.retrofit.RepoItems
 
-class RepoAdapter(private val items: List<RepoItems>, private val onClickListener:(RepoItems) -> Unit): RecyclerView.Adapter<RepoViewHolder>() {
+class RepoAdapter( private val onClickListener:(RepoItems) -> Unit): RecyclerView.Adapter<RepoViewHolder>() {
+
+    val items : MutableList<RepoItems> = mutableListOf()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoViewHolder {
@@ -20,5 +22,10 @@ class RepoAdapter(private val items: List<RepoItems>, private val onClickListene
     }
     override fun getItemCount(): Int {
         return items.size
+    }
+
+    fun updateAdapter(newItems: List<RepoItems>){
+        items += newItems
+        notifyDataSetChanged()
     }
 }

@@ -2,6 +2,7 @@ package com.example.githubjavapop.domain
 
 
 import android.util.Log
+import com.example.githubjavapop.data.model.ApiState
 import com.example.githubjavapop.data.model.retrofit.RepoItems
 import com.example.githubjavapop.data.network.GitHubApiService
 import kotlinx.coroutines.Dispatchers
@@ -30,15 +31,19 @@ class GetRepoUseCase@Inject constructor(private val apiService: GitHubApiService
     }
      */
 
-    suspend fun loadList(): List<RepoItems>{
+    suspend fun loadList(): ApiState<List<RepoItems>, String>{
         return withContext(Dispatchers.IO){
             val response = apiService.getAllRepositories()
             if (response.isSuccessful){
                 val repo = response.body()?.items ?: emptyList<RepoItems>()
-                repo
+                if (repo.isEmpty()){
+                    ApiState.Error("Error Lista Vacia")
+                }else{
+                    ApiState.Success(repo)
+                }
             }else{
                 Log.e("ERROR CARGAR", response.errorBody().toString())
-                emptyList()
+                ApiState.Error("Error al Cargar")
             }
         }
     }
