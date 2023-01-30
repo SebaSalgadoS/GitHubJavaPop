@@ -16,6 +16,9 @@ import com.example.githubjavapop.data.model.retrofit.RepoItems
 import com.example.githubjavapop.databinding.FragmentRepoViewBinding
 import com.example.githubjavapop.ui.adapter.RepoAdapter
 import com.example.githubjavapop.ui.viewmodel.FragmentRepoViewModel
+import com.example.githubjavapop.utils.ERROR_STATE
+import com.example.githubjavapop.utils.LOADING_STATE
+import com.example.githubjavapop.utils.SUCCESS_STATE
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -28,13 +31,12 @@ class FragmentRepoView : Fragment() {
 
     private val repoAdapter by lazy { RepoAdapter() { repos -> onItemSelected(repos) } }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,30 +53,28 @@ class FragmentRepoView : Fragment() {
 
             when(state){
                 is ApiState.Loading -> {
-                    // mostrar cargando
+                    binding.viewFlipper.displayedChild = LOADING_STATE
                 }
                 is ApiState.Error -> {
-                    Log.e("Error Fragmento", state.error)
+                    binding.viewFlipper.displayedChild = ERROR_STATE
+                    binding.txtError.text = state.error
                 }
                 is ApiState.Success -> {
+                    binding.viewFlipper.displayedChild = SUCCESS_STATE
                     repoAdapter.updateAdapter(state.value)
                 }
             }
-
-            Log.e("DATA FRAGMENTO", state.toString())
         })
 
     }
 
     fun onItemSelected(repo: RepoItems){
-        Toast.makeText(context, "CLICK CLICK CLICK!!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, repo.repoName + " - " + repo.repoOwner.ownerName, Toast.LENGTH_SHORT).show()
         val next_action = FragmentRepoViewDirections.actionFragmentRepoViewToFragmentPullsView(
             repositoriesUser = repo.repoOwner.ownerName,
             repositoriesTitle = repo.repoName)
 
         findNavController().navigate(next_action)
-
-        //findNavController().navigate(R.id.action_fragmentRepoView_to_fragmentPullsView, bundle)
     }
 
 }
