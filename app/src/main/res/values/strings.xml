@@ -23,9 +23,11 @@
     <!-- Fragment repo view -->
     <string name="title_repo_toolbar">GitHubJavaPop - Repositories</string>
     <string name="error_message">Error Loading Repositories </string>
+    <string name="avatar_repo_user">Avatar user repo</string>
 
     <!-- Fragment pulls vire -->
     <string name="pulls_title">Title Pulls Request</string>
     <string name="pulls_error">Error loading pulls request</string>
+    <string name="avatar_pulls_user">Avatar user pulls</string>
 
 </resources>
