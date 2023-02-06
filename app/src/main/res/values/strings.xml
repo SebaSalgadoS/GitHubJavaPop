@@ -2,4 +2,30 @@
     <string name="app_name">GitHub JavaPop</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Generic Strings -->
+    <string name="loading">Loading...</string>
+    <string name="username">Username</string>
+    <string name="icon_loading">Icon Loading screen</string>
+    <string name="icon_toolbar">Icon Toolbar</string>
+
+    <!-- Items_repos -->
+    <string name="repo_name">Repository name</string>
+    <string name="repo_description">Repository Description</string>
+    <string name="forks">Forks</string>
+    <string name="stars">Stars</string>
+
+    <!-- Items_pulls_repo -->
+    <string name="title_pull_request">Title Pull Request</string>
+    <string name="body_pull_request">Body Pull Request</string>
+    <string name="date_pull_request">Date Pull Request</string>
+
+    <!-- Fragment repo view -->
+    <string name="title_repo_toolbar">GitHubJavaPop - Repositories</string>
+    <string name="error_message">Error Loading Repositories </string>
+
+    <!-- Fragment pulls vire -->
+    <string name="pulls_title">Title Pulls Request</string>
+    <string name="pulls_error">Error loading pulls request</string>
+
 </resources>
