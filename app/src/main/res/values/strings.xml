@@ -4,7 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Generic Strings -->
-    <string name="loading">Loading...</string>
+    <string name="loading">Loading…</string>
     <string name="username">Username</string>
     <string name="icon_loading">Icon Loading screen</string>
     <string name="icon_toolbar">Icon Toolbar</string>
