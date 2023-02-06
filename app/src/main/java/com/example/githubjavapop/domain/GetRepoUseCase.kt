@@ -11,7 +11,6 @@ import javax.inject.Inject
 
 class GetRepoUseCase@Inject constructor(private val apiService: GitHubApiService) {
 
-
     /*
     //TODO revisar la implementacion del viewModel en esta funcion
 
@@ -35,7 +34,7 @@ class GetRepoUseCase@Inject constructor(private val apiService: GitHubApiService
         return withContext(Dispatchers.IO){
             val response = apiService.getAllRepositories()
             if (response.isSuccessful){
-                val repo = response.body()?.items ?: emptyList<RepoItems>()
+                val repo = response.body()?.items ?: emptyList()
                 if (repo.isEmpty()){
                     ApiState.Error("Error Lista Vacia")
                 }else{

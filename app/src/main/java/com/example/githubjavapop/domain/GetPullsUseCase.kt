@@ -9,7 +9,6 @@ import javax.inject.Inject
 
 class GetPullsUseCase@Inject constructor(private val apiService: GitHubApiService) {
 
-
     suspend fun loadPullList(user: String , repo: String): ApiState<List<PullsModel>, String>{
         return withContext(Dispatchers.IO){
             val response = apiService.getPullRequest(
@@ -18,14 +17,13 @@ class GetPullsUseCase@Inject constructor(private val apiService: GitHubApiServic
             if (response.isSuccessful){
                 val pulls = response.body()?: emptyList()
                 if (pulls.isEmpty()){
-                    ApiState.Error("Error lista de pulls vacia")
+                    ApiState.Error("This repository does not have pull requests")
                 }else{
                     ApiState.Success(pulls)
                 }
             }else{
-                ApiState.Error("Error al cargar")
+                ApiState.Error("ERROR loading pulls request")
             }
-
         }
     }
 }

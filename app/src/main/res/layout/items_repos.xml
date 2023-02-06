@@ -82,7 +82,6 @@
                     android:textSize="13sp"/>
 
             </LinearLayout>
-
         </LinearLayout>
 
         <LinearLayout
@@ -111,10 +110,8 @@
                 android:textSize="10sp"
                 android:textColor="@color/azul_marino"
                 android:textStyle="bold"/>
+
         </LinearLayout>
     </LinearLayout>
-
-
-
 </androidx.cardview.widget.CardView>
 

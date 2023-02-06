@@ -1,7 +1,6 @@
 package com.example.githubjavapop.ui.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,11 +25,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class FragmentRepoView : Fragment() {
 
     private val repoViewModel: FragmentRepoViewModel by viewModels()
-
     private val binding by lazy { FragmentRepoViewBinding.inflate(layoutInflater) }
-
-    private val repoAdapter by lazy { RepoAdapter() { repos -> onItemSelected(repos) } }
-
+    private val repoAdapter by lazy { RepoAdapter { repos -> onItemSelected(repos) } }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,13 +40,10 @@ class FragmentRepoView : Fragment() {
 
         val recyclerView = binding.repoRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
-
         repoViewModel.getAllRepos()
-
         recyclerView.adapter = repoAdapter
 
         repoViewModel.repositoryModel.observe(viewLifecycleOwner, Observer {state ->
-
             when(state){
                 is ApiState.Loading -> {
                     binding.viewFlipper.displayedChild = LOADING_STATE
@@ -65,16 +58,14 @@ class FragmentRepoView : Fragment() {
                 }
             }
         })
-
     }
 
-    fun onItemSelected(repo: RepoItems){
+    private fun onItemSelected(repo: RepoItems){
         Toast.makeText(context, repo.repoName + " - " + repo.repoOwner.ownerName, Toast.LENGTH_SHORT).show()
-        val next_action = FragmentRepoViewDirections.actionFragmentRepoViewToFragmentPullsView(
+        val action = FragmentRepoViewDirections.actionFragmentRepoViewToFragmentPullsView(
             repositoriesUser = repo.repoOwner.ownerName,
             repositoriesTitle = repo.repoName)
-
-        findNavController().navigate(next_action)
+        findNavController().navigate(action)
     }
 
 }

@@ -8,14 +8,14 @@ import com.squareup.picasso.Picasso
 
 class PullsViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
-    val binding = ItemsPullsRepoBinding.bind(view)
+    private val binding = ItemsPullsRepoBinding.bind(view)
 
-    val txtTitlePulls = binding.txtTittlePull
-    val txtBodyPulls = binding.txtBodyPull
-    val txtDatePulls = binding.txtDatePull
-    val txtPullUsername = binding.txtPullUsername
-    val imgPullUser = binding.imgPullUser
-    val pullsContent = binding.pullsContent
+    private val txtTitlePulls = binding.txtTittlePull
+    private val txtBodyPulls = binding.txtBodyPull
+    private val txtDatePulls = binding.txtDatePull
+    private val txtPullUsername = binding.txtPullUsername
+    private val imgPullUser = binding.imgPullUser
+    private val pullsContent = binding.pullsContent
 
     fun initViewHolder(pulls: PullsModel, onClickListener:(PullsModel) -> Unit){
 

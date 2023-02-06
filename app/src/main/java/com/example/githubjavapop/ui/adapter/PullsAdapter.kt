@@ -1,5 +1,6 @@
 package com.example.githubjavapop.ui.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,7 @@ class PullsAdapter( private val onClickListener:(PullsModel) -> Unit): RecyclerV
         return items.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateAdapter(newItems: List<PullsModel>){
         items += newItems
         notifyDataSetChanged()

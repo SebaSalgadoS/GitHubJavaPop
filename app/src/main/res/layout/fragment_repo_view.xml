@@ -38,7 +38,6 @@
         app:layout_constraintTop_toBottomOf="@id/myToolbar"
         app:layout_constraintBottom_toBottomOf="parent">
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/viewLoading"
             android:layout_width="match_parent"
@@ -63,7 +62,7 @@
                 android:src="@drawable/github_mark_white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewProgressBar"
+                app:layout_constraintTop_toBottomOf="@id/viewProgressBar"
                 app:layout_constraintVertical_bias="0.017" />
 
             <TextView
@@ -80,12 +79,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/viewProgressBar"
+                app:layout_constraintStart_toEndOf="@id/imageView"
+                app:layout_constraintTop_toBottomOf="@id/viewProgressBar"
                 app:layout_constraintVertical_bias="0.015" />
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/viewSucces"
             android:layout_width="match_parent"
@@ -126,7 +125,6 @@
                 app:layout_constraintTop_toBottomOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </ViewFlipper>
 </androidx.constraintlayout.widget.ConstraintLayout>
