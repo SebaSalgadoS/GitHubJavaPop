@@ -18,14 +18,15 @@
             android:id="@+id/iconApp"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/github_mark_white"/>
+            android:src="@drawable/github_mark_white"
+            android:contentDescription="@string/icon_toolbar" />
 
         <TextView
             android:id="@+id/viewTittle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="GitHubJavaPop - Repositories"
+            android:text="@string/title_repo_toolbar"
             android:textStyle="bold"
             android:textColor="@color/white"/>
 
@@ -63,7 +64,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/viewProgressBar"
-                app:layout_constraintVertical_bias="0.017" />
+                app:layout_constraintVertical_bias="0.017"
+                android:contentDescription="@string/icon_loading" />
 
             <TextView
                 android:id="@+id/textView"
@@ -72,7 +74,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="160dp"
                 android:gravity="center_vertical"
-                android:text="Loading..."
+                android:text="@string/loading"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -116,7 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="Error"
+                android:text="@string/error_message"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"

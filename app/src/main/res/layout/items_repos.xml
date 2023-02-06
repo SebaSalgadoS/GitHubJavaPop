@@ -19,7 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="Nombre Repositorio"
+                android:text="@string/repo_name"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:textColor="@color/azul_marino"/>
@@ -45,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="Descripcion Repositorio"
+                android:text="@string/repo_description"
                 android:textSize="12sp"
                 android:maxLines="3"/>
 
@@ -62,24 +63,24 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:gravity="center_vertical"
-                    android:drawableStart="@drawable/ic_fork"
                     android:drawablePadding="5dp"
-                    android:text="Forks"
+                    android:text="@string/forks"
                     android:textStyle="bold"
                     android:textColor="@color/azul_marino"
-                    android:textSize="13sp"/>
+                    android:textSize="13sp"
+                    app:drawableStartCompat="@drawable/ic_fork" />
 
                 <TextView
                     android:id="@+id/txtRepoStars"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:drawableStart="@drawable/ic_star"
                     android:drawablePadding="5dp"
-                    android:text="Stars"
+                    android:text="@string/stars"
                     android:textStyle="bold"
                     android:textColor="@color/azul_marino"
-                    android:textSize="13sp"/>
+                    android:textSize="13sp"
+                    app:drawableStartCompat="@drawable/ic_star" />
 
             </LinearLayout>
         </LinearLayout>
@@ -106,8 +107,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_gravity="center_horizontal"
-                android:text="Username"
-                android:textSize="10sp"
+                android:text="@string/username"
+                android:textSize="11sp"
                 android:textColor="@color/azul_marino"
                 android:textStyle="bold"/>
 

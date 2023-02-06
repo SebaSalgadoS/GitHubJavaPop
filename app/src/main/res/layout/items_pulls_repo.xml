@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginStart="10dp"
-            android:text="Titulo Pull Request"
+            android:text="@string/title_pull_request"
             android:textStyle="bold"/>
 
         <TextView
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginStart="10dp"
-            android:text="Body Pull Request"/>
+            android:text="@string/body_pull_request"/>
 
         <TextView
             android:id="@+id/txtDatePull"
@@ -43,21 +43,23 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_gravity="end"
-            android:text="date pull request"
+            android:text="@string/date_pull_request"
             android:textStyle="italic"
-            android:textSize="10dp"/>
+            android:textSize="11sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/imgPullUser"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                tools:srcCompat="@tools:sample/avatars"/>
+                tools:srcCompat="@tools:sample/avatars"
+                android:contentDescription="@string/avatar_pulls_user" />
 
             <TextView
                 android:id="@+id/txtPullUsername"
@@ -65,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_gravity="center_vertical"
-                android:text="Pull Request Username"/>
+                android:text="@string/username"/>
 
         </LinearLayout>
     </LinearLayout>
