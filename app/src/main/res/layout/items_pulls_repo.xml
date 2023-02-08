@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginStart="10dp"
+            android:maxLines="3"
             android:text="@string/body_pull_request"/>
 
         <TextView
