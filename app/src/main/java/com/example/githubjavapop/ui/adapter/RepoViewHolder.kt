@@ -9,22 +9,18 @@ import com.squareup.picasso.Picasso
 class RepoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     private val binding = ItemsReposBinding.bind(view)
-
-    private val txtRepoName = binding.txtRepoName
-    private val txtRepoDescription = binding.txtRepoDescription
-    private val txtRepoFork = binding.txtRepoFork
-    private val txtRepoStars = binding.txtRepoStars
-    private val txtRepoUsername = binding.txtRepoUsername
     private val imgRepoUser = binding.imgRepoUser
     private val repoContent = binding.repoContent
 
     fun initViewHolder(repo: RepoItems,onClickListener:(RepoItems) -> Unit) {
 
-        txtRepoName.text = repo.repoName
-        txtRepoDescription.text = repo.repoDescription
-        txtRepoFork.text = repo.forks.toString()
-        txtRepoStars.text = repo.stars.toString()
-        txtRepoUsername.text = repo.repoOwner.ownerName
+        with(binding){
+            txtRepoName.text = repo.repoName
+            txtRepoDescription.text = repo.repoDescription
+            txtRepoFork.text = repo.forks.toString()
+            txtRepoStars.text = repo.stars.toString()
+            txtRepoUsername.text = repo.repoOwner.ownerName
+        }
 
         repoContent.setOnClickListener {
             onClickListener(repo)
