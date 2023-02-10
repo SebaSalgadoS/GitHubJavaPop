@@ -27,5 +27,23 @@
         <argument
             android:name="repositories_user"
             app:argType="string"/>
+        <action
+            android:id="@+id/action_fragmentPullsView_to_fragmentPullsBrowser"
+            app:destination="@id/fragmentPullsBrowser" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPullsBrowser"
+        android:name="com.example.githubjavapop.ui.view.FragmentPullsBrowser"
+        android:label="fragment_pulls_browser"
+        tools:layout="@layout/fragment_pulls_browser" >
+        <action
+            android:id="@+id/action_fragmentPullsBrowser_to_fragmentPullsView"
+            app:destination="@id/fragmentPullsView" />
+        <argument
+            android:name="url_pulls"
+            app:argType="string"/>
+        <argument
+            android:name="pulls_title"
+            app:argType="string"/>
     </fragment>
 </navigation>

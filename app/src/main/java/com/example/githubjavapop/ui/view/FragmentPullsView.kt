@@ -2,6 +2,7 @@ package com.example.githubjavapop.ui.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,21 +15,28 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubjavapop.data.model.ApiState
 import com.example.githubjavapop.data.model.retrofit.PullsModel
+import com.example.githubjavapop.data.service.ImageLoader
 import com.example.githubjavapop.databinding.FragmentPullsViewBinding
 import com.example.githubjavapop.ui.adapter.PullsAdapter
+import com.example.githubjavapop.ui.adapter.RepoAdapter
 import com.example.githubjavapop.ui.viewmodel.FragmentPullsViewModel
 import com.example.githubjavapop.utils.ERROR_STATE
 import com.example.githubjavapop.utils.LOADING_STATE
 import com.example.githubjavapop.utils.SUCCESS_STATE
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
-class FragmentPullsView : Fragment() {
+class FragmentPullsView @Inject constructor(private val picasso: ImageLoader) : Fragment() {
 
     private val binding by lazy { FragmentPullsViewBinding.inflate(layoutInflater) }
     private val args: FragmentPullsViewArgs by navArgs()
     private val pullViewModel: FragmentPullsViewModel by viewModels()
-    private val pullsAdapter by lazy { PullsAdapter { pulls -> onItemSelected(pulls = pulls) } }
+    private val pullsAdapter by lazy { PullsAdapter(adapterManager = PullsManager()) { pulls -> onItemSelected(pulls = pulls) } }
+
+    inner class PullsManager: PullsAdapter.AdapterManager{
+        override fun provideImageLoader(): ImageLoader = picasso
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,8 +51,7 @@ class FragmentPullsView : Fragment() {
         val recyclerView = binding.pullsRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
         pullViewModel.getAllPulls(user = args.repositoriesUser,repo = args.repositoriesTitle)
-        recyclerView.adapter = PullsAdapter { pulls ->
-            onItemSelected(pulls) }
+        recyclerView.adapter = pullsAdapter
 
         pullViewModel.pullsRequestModel.observe(viewLifecycleOwner, Observer { state->
             when(state){
@@ -58,7 +65,6 @@ class FragmentPullsView : Fragment() {
                 is ApiState.Success -> {
                     binding.viewFlipper.displayedChild = SUCCESS_STATE
                     pullsAdapter.updateAdapter(state.value)
-                    Toast.makeText(context,"LLEGARON LOS DATOS AL ADAPTER", Toast.LENGTH_SHORT).show()
                 }
             }
         })
@@ -67,12 +73,8 @@ class FragmentPullsView : Fragment() {
     }
 
     private fun onItemSelected(pulls: PullsModel) {
-        val intent = Intent(context, PullRequestView::class.java).apply {
-            putExtra("Pull_url", pulls.urlPull)
-            putExtra("Title_repo", args.repositoriesTitle)
-        }
-        context?.startActivity(intent)
-
+        val action = FragmentPullsViewDirections.actionFragmentPullsViewToFragmentPullsBrowser(urlPulls = pulls.urlPull, pullsTitle = pulls.pullTitle)
+        findNavController().navigate(action)
     }
 
 }

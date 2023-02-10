@@ -13,7 +13,6 @@ class GetRepoUseCase@Inject constructor(private val apiService: GitHubApiService
 
     /*
     //TODO revisar la implementacion del viewModel en esta funcion
-
      fun loadList2(): List<RepoItems>{
         var respuesta = emptyList<RepoItems>()
          CoroutineScope(Dispatchers.IO).launch{
@@ -46,8 +45,5 @@ class GetRepoUseCase@Inject constructor(private val apiService: GitHubApiService
             }
         }
     }
-
-
-
 
 }

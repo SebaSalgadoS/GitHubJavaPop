@@ -8,7 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="azul_marino">#00304E</color>
-    <color name="github_background">#161b22</color>
-    <color name="cardview_background">#eae6ca</color>
-    <color name="white_signal">#f4f4f4</color>
+    <color name="github_background">#161B22</color>
+    <color name="cardview_background">#EAE6CA</color>
+    <color name="white_signal">#F4F4F4</color>
+    <color name="verde_oscuro">#00722E</color>
 </resources>

@@ -6,23 +6,22 @@ import com.example.githubjavapop.data.model.retrofit.RepoItems
 import com.example.githubjavapop.databinding.ItemsReposBinding
 import com.squareup.picasso.Picasso
 
-class RepoViewHolder(view: View, private val adapterManager: RepoAdapter.AdapterManager) :
-    RecyclerView.ViewHolder(view) {
+class RepoViewHolderMostForked(view: View,private val adapterManager: RepoAdapter.AdapterManager) : RecyclerView.ViewHolder(view) {
 
     private val binding = ItemsReposBinding.bind(view)
 
-    fun initViewHolder(repo: RepoItems, onClickListener: (RepoItems) -> Unit) = with(binding) {
+    fun initViewHolder(repo: RepoItems,onClickListener:(RepoItems) -> Unit) = with(binding){
 
-        txtRepoName.text = repo.repoName
-        txtRepoDescription.text = repo.repoDescription
-        txtRepoFork.text = repo.forks.toString()
-        txtRepoStars.text = repo.stars.toString()
-        txtRepoUsername.text = repo.repoOwner.ownerName
+            txtRepoName.text = repo.repoName
+            txtRepoDescription.text = repo.repoDescription
+            txtRepoFork.text = repo.forks.toString()
+            txtRepoStars.text = repo.stars.toString()
+            txtRepoUsername.text = repo.repoOwner.ownerName
 
         repoContent.setOnClickListener {
             onClickListener(repo)
-
         }
+
         adapterManager.provideImageLoader().loadPicasso(repo.repoOwner.ownerAvatar, imgRepoUser)
     }
 }

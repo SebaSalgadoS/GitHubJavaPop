@@ -14,20 +14,27 @@
     <string name="repo_description">Repository Description</string>
     <string name="forks">Forks</string>
     <string name="stars">Stars</string>
-
+    <string name="most_forked">Most Forked</string>
     <!-- Items_pulls_repo -->
     <string name="title_pull_request">Title Pull Request</string>
     <string name="body_pull_request">Body Pull Request</string>
     <string name="date_pull_request">Date Pull Request</string>
+    <string name="pulls_status_open">Pulls Open</string>
+    <string name="pulls_status_close">Pulls Close</string>
 
     <!-- Fragment repo view -->
     <string name="title_repo_toolbar">GitHubJavaPop - Repositories</string>
     <string name="error_message">Error Loading Repositories </string>
     <string name="avatar_repo_user">Avatar user repo</string>
 
-    <!-- Fragment pulls vire -->
+    <!-- Fragment pulls view -->
     <string name="pulls_title">Title Pulls Request</string>
     <string name="pulls_error">Error loading pulls request</string>
     <string name="avatar_pulls_user">Avatar user pulls</string>
+
+    <!-- Fragment pulls Browser -->
+    <string name="browser_title">Browser Pulls Title</string>
+    <string name="browser_icon_toolbar">Browser icon Toolbar</string>
+    <string name="browser_icon_back">Browser icon Back</string>
 
 </resources>

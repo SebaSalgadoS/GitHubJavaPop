@@ -6,7 +6,7 @@ import com.example.githubjavapop.data.model.retrofit.PullsModel
 import com.example.githubjavapop.databinding.ItemsPullsOpenBinding
 import com.squareup.picasso.Picasso
 
-class PullsViewHolder(view: View, private val adapterManager: PullsAdapter.AdapterManager) :
+class PullsViewHolderClose(view: View, private val adapterManager: PullsAdapter.AdapterManager) :
     RecyclerView.ViewHolder(view) {
 
     private val binding = ItemsPullsOpenBinding.bind(view)
@@ -24,6 +24,5 @@ class PullsViewHolder(view: View, private val adapterManager: PullsAdapter.Adapt
         pullsContent.setOnClickListener {
             onClickListener(pulls)
         }
-
     }
 }

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
+    android:backgroundTint="@color/white_signal"
     app:cardCornerRadius="10dp"
     app:cardUseCompatPadding="true"
     app:cardElevation="2dp"
@@ -25,7 +26,9 @@
             android:layout_marginTop="5dp"
             android:layout_marginStart="10dp"
             android:text="@string/title_pull_request"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/github_background"/>
 
         <TextView
             android:id="@+id/txtBodyPull"
@@ -33,20 +36,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
             android:maxLines="3"
-            android:text="@string/body_pull_request"/>
-
-        <TextView
-            android:id="@+id/txtDatePull"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_gravity="end"
-            android:text="@string/date_pull_request"
-            android:textStyle="italic"
-            android:textSize="11sp"/>
+            android:text="@string/body_pull_request"
+            android:textSize="12sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,12 +48,13 @@
             android:orientation="horizontal"
             tools:ignore="UseCompoundDrawables">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imgPullUser"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 tools:srcCompat="@tools:sample/avatars"
-                android:contentDescription="@string/avatar_pulls_user" />
+                android:contentDescription="@string/avatar_pulls_user"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"/>
 
             <TextView
                 android:id="@+id/txtPullUsername"
@@ -68,8 +62,37 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_gravity="center_vertical"
-                android:text="@string/username"/>
+                android:text="@string/username"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="@color/github_background"/>
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtPullStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/stylo_border_pull_status"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center"
+            android:text="@string/pulls_status_open"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            app:drawableStartCompat="@drawable/ic_open"/>
+
+        <TextView
+            android:id="@+id/txtDatePull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_gravity="end|center_vertical"
+            android:text="@string/date_pull_request"
+            android:textStyle="italic|bold"
+            android:textSize="11sp"/>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -11,12 +11,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class FragmentRepoViewModel @Inject constructor(val data: GetRepoUseCase): ViewModel() {
+class FragmentRepoViewModel @Inject constructor(val data: GetRepoUseCase) : ViewModel() {
 
     val repositoryModel = MutableLiveData<ApiState<List<RepoItems>, String>>()
 
-    fun getAllRepos(){
-        viewModelScope.launch{
+    fun getAllRepos() {
+        viewModelScope.launch {
             repositoryModel.postValue(data.loadList())
             println("DATA REPO VIEW MODEL" + data.loadList())
         }

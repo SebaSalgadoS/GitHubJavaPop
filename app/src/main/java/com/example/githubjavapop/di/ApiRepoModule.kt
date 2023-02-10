@@ -1,7 +1,11 @@
 package com.example.githubjavapop.di
 
+import android.widget.ImageView
 import com.example.githubjavapop.BuildConfig
 import com.example.githubjavapop.data.network.GitHubApiService
+import com.example.githubjavapop.data.service.ImageLoader
+import com.example.githubjavapop.data.service.ImageLoaderImpl
+import com.squareup.picasso.Picasso
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,5 +37,11 @@ object ApiRepoModule {
     @Singleton
     fun provideGitHubApiService(retrofit: Retrofit): GitHubApiService{
         return retrofit.create(GitHubApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun loadPicasso(): ImageLoader{
+        return ImageLoaderImpl()
     }
 }

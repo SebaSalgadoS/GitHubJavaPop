@@ -17,9 +17,7 @@ class FragmentPullsBrowser : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        return binding.root
-    }
+    ): View = binding.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -34,13 +32,9 @@ class FragmentPullsBrowser : Fragment() {
         initToolbarTitle()
     }
 
-    private fun initWebView(){
-        binding.myBrowser.loadUrl(args.urlPulls)
-    }
+    private fun initWebView() = binding.myBrowser.loadUrl(args.urlPulls)
 
-    private fun initToolbarTitle(){
-        binding.viewTittle.text = args.pullsTitle
-    }
+    private fun initToolbarTitle() { binding.viewTittle.text = args.pullsTitle }
 
     private fun setBackUpButton(){
         binding.iconBack.setOnClickListener { findNavController().navigateUp() }
