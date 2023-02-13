@@ -1,11 +1,9 @@
 package com.example.githubjavapop.di
 
-import android.widget.ImageView
 import com.example.githubjavapop.BuildConfig
 import com.example.githubjavapop.data.network.GitHubApiService
-import com.example.githubjavapop.data.service.ImageLoader
-import com.example.githubjavapop.data.service.ImageLoaderImpl
-import com.squareup.picasso.Picasso
+import com.example.githubjavapop.utils.ImageLoader
+import com.example.githubjavapop.utils.ImageLoaderImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,7 +39,7 @@ object ApiRepoModule {
 
     @Provides
     @Singleton
-    fun loadPicasso(): ImageLoader{
+    fun loadPicasso(): ImageLoader {
         return ImageLoaderImpl()
     }
 }
