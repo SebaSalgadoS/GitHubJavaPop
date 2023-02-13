@@ -23,9 +23,9 @@
 
         <ImageView
             android:id="@+id/iconApp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="20dp"
+            android:layout_width="@dimen/dimen_30dp"
+            android:layout_height="@dimen/dimen_30dp"
+            android:layout_marginStart="@dimen/dimen_20dp"
             android:contentDescription="@string/icon_toolbar"
             android:src="@drawable/github_mark_white" />
 
@@ -33,7 +33,7 @@
             android:id="@+id/viewTittle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
             android:text="@string/pulls_title"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -42,7 +42,7 @@
     <ViewFlipper
         android:id="@+id/viewFlipper"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/dimen_0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/myToolbar">
 
@@ -53,9 +53,9 @@
 
             <ProgressBar
                 android:id="@+id/viewProgressBar"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="260dp"
+                android:layout_width="@dimen/dimen_100dp"
+                android:layout_height="@dimen/dimen_100dp"
+                android:layout_marginTop="@dimen/dimen_260dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
@@ -63,10 +63,10 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="140dp"
-                android:layout_marginTop="148dp"
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="@dimen/dimen_50dp"
+                android:layout_marginStart="@dimen/dimen_140dp"
+                android:layout_marginTop="@dimen/dimen_148dp"
                 android:contentDescription="@string/icon_loading"
                 android:src="@drawable/github_mark_white"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -78,12 +78,12 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="160dp"
+                android:layout_marginStart="@dimen/dimen_8dp"
+                android:layout_marginTop="@dimen/dimen_160dp"
                 android:gravity="center_vertical"
                 android:text="@string/loading"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/dimen_20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -101,13 +101,13 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/pullsRecyclerView"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="1dp"
-                android:layout_marginBottom="1dp"
-                android:padding="5dp"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_0dp"
+                android:layout_marginStart="@dimen/dimen_1dp"
+                android:layout_marginTop="@dimen/dimen_1dp"
+                android:layout_marginEnd="@dimen/dimen_1dp"
+                android:layout_marginBottom="@dimen/dimen_1dp"
+                android:padding="@dimen/dimen_5dp"
                 app:layoutManager="LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

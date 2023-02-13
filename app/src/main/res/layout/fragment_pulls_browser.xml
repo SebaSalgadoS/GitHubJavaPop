@@ -22,8 +22,8 @@
 
         <ImageView
             android:id="@+id/iconApp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/dimen_30dp"
+            android:layout_height="@dimen/dimen_30dp"
             android:layout_marginStart="20dp"
             android:contentDescription="@string/browser_icon_toolbar"
             android:src="@drawable/github_mark_white" />
@@ -32,7 +32,7 @@
             android:id="@+id/viewTittle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
             android:text="@string/browser_title"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -42,7 +42,7 @@
     <WebView
         android:id="@+id/myBrowser"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/dimen_0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/myToolbar" />
 

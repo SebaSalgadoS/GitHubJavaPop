@@ -8,7 +8,7 @@
     <dimen name="dimen_5dp">5dp</dimen>
     <dimen name="dimen_8dp">8dp</dimen>
     <dimen name="dimen_10dp">10dp</dimen>
-    <dimem name="dimen_20dp">20dp</dimem>
+    <dimen name="dimen_20dp">20dp</dimen>
     <dimen name="dimen_30dp">30dp</dimen>
     <dimen name="dimen_35dp">35dp</dimen>
     <dimen name="dimen_50dp">50dp</dimen>

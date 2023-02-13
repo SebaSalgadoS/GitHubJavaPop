@@ -7,26 +7,26 @@
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
     android:backgroundTint="@color/white_signal"
-    android:padding="5dp"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="2dp"
+    android:padding="@dimen/dimen_5dp"
+    app:cardCornerRadius="@dimen/dimen_10dp"
+    app:cardElevation="@dimen/dimen_2dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="@dimen/dimen_5dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/txtTittlePull"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_5dp"
             android:text="@string/title_pull_request"
             android:textColor="@color/github_background"
-            android:textSize="15sp"
+            android:textSize="@dimen/dimen_15sp"
             android:textStyle="bold" />
 
         <TextView
@@ -34,23 +34,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_marginBottom="@dimen/dimen_5dp"
             android:maxLines="3"
             android:text="@string/body_pull_request"
-            android:textSize="12sp" />
+            android:textSize="@dimen/dimen_12sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/dimen_10dp"
             android:orientation="horizontal"
             tools:ignore="UseCompoundDrawables">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imgPullUser"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="@dimen/dimen_35dp"
+                android:layout_height="@dimen/dimen_35dp"
                 android:contentDescription="@string/avatar_pulls_user"
                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
                 tools:srcCompat="@tools:sample/avatars" />
@@ -60,10 +60,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="@dimen/dimen_5dp"
                 android:text="@string/username"
                 android:textColor="@color/github_background"
-                android:textSize="11sp"
+                android:textSize="@dimen/dimen_11sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -72,14 +72,14 @@
             android:id="@+id/txtPullStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
             android:background="@drawable/stylo_border_pull_status"
             android:gravity="center"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="4dp"
+            android:paddingHorizontal="@dimen/dimen_8dp"
+            android:paddingVertical="@dimen/dimen_4dp"
             android:text="@string/pulls_status_close"
             android:textColor="@color/white"
-            android:textSize="11sp"
+            android:textSize="@dimen/dimen_11sp"
             android:textStyle="bold"
             app:drawableStartCompat="@drawable/ic_close" />
 
@@ -88,9 +88,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center_vertical"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/dimen_5dp"
             android:text="@string/date_pull_request"
-            android:textSize="11sp"
+            android:textSize="@dimen/dimen_11sp"
             android:textStyle="italic" />
 
     </LinearLayout>

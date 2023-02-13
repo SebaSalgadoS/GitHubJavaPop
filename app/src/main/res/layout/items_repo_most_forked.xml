@@ -7,9 +7,9 @@
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
     android:backgroundTint="@color/white_signal"
-    android:padding="5dp"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="2dp"
+    android:padding="@dimen/dimen_5dp"
+    app:cardCornerRadius="@dimen/dimen_10dp"
+    app:cardElevation="@dimen/dimen_2dp"
     app:cardUseCompatPadding="true">
 
     <!--reemplazar linear layout por constraint-->
@@ -17,7 +17,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="@dimen/dimen_5dp"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
@@ -25,8 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -34,44 +34,44 @@
                 android:id="@+id/txtRepoName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/dimen_10dp"
                 android:text="@string/repo_name"
                 android:textColor="@color/azul_marino"
-                android:textSize="15sp"
+                android:textSize="@dimen/dimen_15sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtRepoDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/dimen_10dp"
                 android:maxLines="3"
                 android:text="@string/repo_description"
-                android:textSize="12sp" />
+                android:textSize="@dimen/dimen_12sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:layout_marginBottom="@dimen/dimen_10dp"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="@dimen/dimen_20dp"
+                    android:layout_height="@dimen/dimen_20dp"
                     android:layout_gravity="center"
-                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginHorizontal="@dimen/dimen_10dp"
                     android:src="@drawable/github_mark" />
 
                 <TextView
                     android:id="@+id/txtRepoStars"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="5dp"
+                    android:drawablePadding="@dimen/dimen_5dp"
                     android:gravity="center_vertical"
                     android:text="@string/stars"
                     android:textColor="@color/azul_marino"
-                    android:textSize="13sp"
+                    android:textSize="@dimen/dimen_13sp"
                     android:textStyle="bold"
                     app:drawableStartCompat="@drawable/ic_star" />
 
@@ -79,12 +79,12 @@
                     android:id="@+id/txtRepoFork"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:drawablePadding="5dp"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:drawablePadding="@dimen/dimen_5dp"
                     android:gravity="center_vertical"
                     android:text="@string/forks"
                     android:textColor="@color/azul_marino"
-                    android:textSize="13sp"
+                    android:textSize="@dimen/dimen_13sp"
                     android:textStyle="bold"
                     app:drawableStartCompat="@drawable/ic_fork" />
 
@@ -95,10 +95,10 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/stylo_border_popular"
                 android:gravity="center"
-                android:paddingHorizontal="5dp"
+                android:paddingHorizontal="@dimen/dimen_5dp"
                 android:text="Most Forked "
                 android:textColor="@color/white"
-                android:textSize="11sp"
+                android:textSize="@dimen/dimen_11sp"
                 android:textStyle="bold"
                 app:drawableStartCompat="@drawable/ic_star" />
 
@@ -108,14 +108,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="@dimen/dimen_0dp"
             android:layout_weight="2"
             android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imgRepoUser"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="@dimen/dimen_60dp"
+                android:layout_height="@dimen/dimen_60dp"
                 android:layout_gravity="center"
                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
                 tools:srcCompat="@tools:sample/avatars" />
@@ -125,10 +125,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/dimen_5dp"
                 android:text="@string/username"
                 android:textColor="@color/azul_marino"
-                android:textSize="11sp"
+                android:textSize="@dimen/dimen_11sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
