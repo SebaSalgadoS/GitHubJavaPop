@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.githubjavapop.R
 import com.example.githubjavapop.data.model.retrofit.RepoItems
-import com.example.githubjavapop.data.service.ImageLoader
+import com.example.githubjavapop.utils.ImageLoader
 import com.example.githubjavapop.utils.REPOADAPTER_MOST_FORKED
 import com.example.githubjavapop.utils.REPOADAPTER_NORMAL
 
