@@ -11,14 +11,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubjavapop.data.model.ApiState
 import com.example.githubjavapop.data.model.retrofit.PullsModel
-import com.example.githubjavapop.utils.ImageLoader
 import com.example.githubjavapop.databinding.FragmentPullsViewBinding
 import com.example.githubjavapop.ui.adapter.PullsAdapter
 import com.example.githubjavapop.ui.viewmodel.FragmentPullsViewModel
 import com.example.githubjavapop.utils.ERROR_STATE
+import com.example.githubjavapop.utils.ImageLoader
 import com.example.githubjavapop.utils.LOADING_STATE
 import com.example.githubjavapop.utils.SUCCESS_STATE
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,15 +32,14 @@ class FragmentPullsView : Fragment() {
     private val args: FragmentPullsViewArgs by navArgs()
     private val pullViewModel: FragmentPullsViewModel by viewModels()
     private val pullsAdapter by lazy {
-        PullsAdapter(adapterManager = PullsManager()) { pulls ->
-            onItemSelected(
-                pulls = pulls
-            )
-        }
+        PullsAdapter(adapterManager = PullsManager())
     }
 
     inner class PullsManager : PullsAdapter.AdapterManager {
         override fun provideImageLoader(): ImageLoader = picassoImage
+        override fun onClickListener(item: PullsModel) {
+            onItemSelected(item)
+        }
     }
 
     override fun onCreateView(
@@ -99,7 +97,7 @@ class FragmentPullsView : Fragment() {
 
     private fun initRecyclerView() {
         val recyclerView = binding.pullsRecyclerView
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager
         recyclerView.adapter = pullsAdapter
     }
 
