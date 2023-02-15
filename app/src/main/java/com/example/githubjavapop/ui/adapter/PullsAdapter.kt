@@ -11,7 +11,7 @@ import com.example.githubjavapop.utils.ImageLoader
 import com.example.githubjavapop.utils.PULLADAPTER_CLOSE
 import com.example.githubjavapop.utils.PULLADAPTER_OPEN
 
-class PullsAdapter(private val adapterManager: AdapterManager, private val onClickListener:(PullsModel) -> Unit): RecyclerView.Adapter<ViewHolder>() {
+class PullsAdapter(private val adapterManager: AdapterManager): RecyclerView.Adapter<ViewHolder>() {
 
     private val items : MutableList<PullsModel> = mutableListOf()
 
@@ -28,8 +28,8 @@ class PullsAdapter(private val adapterManager: AdapterManager, private val onCli
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val pulls = items[position]
         when(viewHolder){
-            is PullsViewHolder -> { viewHolder.initViewHolder(pulls = pulls, onClickListener = onClickListener)}
-            is PullsViewHolderClose -> { viewHolder.initViewHolder(pulls = pulls, onClickListener = onClickListener)}
+            is PullsViewHolder -> { viewHolder.initViewHolder(pulls = pulls)}
+            is PullsViewHolderClose -> { viewHolder.initViewHolder(pulls = pulls)}
         }
     }
 
@@ -54,5 +54,7 @@ class PullsAdapter(private val adapterManager: AdapterManager, private val onCli
 
     interface AdapterManager {
         fun provideImageLoader(): ImageLoader
+        fun onClickListener(item: PullsModel): Unit
+
     }
 }
