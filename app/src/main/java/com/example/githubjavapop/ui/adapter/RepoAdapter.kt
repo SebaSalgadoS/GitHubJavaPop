@@ -11,7 +11,7 @@ import com.example.githubjavapop.utils.ImageLoader
 import com.example.githubjavapop.utils.REPOADAPTER_MOST_FORKED
 import com.example.githubjavapop.utils.REPOADAPTER_NORMAL
 
-class RepoAdapter(private val adapterManager: AdapterManager,  private val onClickListener:(RepoItems) -> Unit): RecyclerView.Adapter<ViewHolder>() {
+class RepoAdapter(private val adapterManager: AdapterManager): RecyclerView.Adapter<ViewHolder>() {
 
     private val items : MutableList<RepoItems> = mutableListOf()
 
@@ -28,8 +28,8 @@ class RepoAdapter(private val adapterManager: AdapterManager,  private val onCli
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val repo = items[position]
         when(viewHolder){
-            is RepoViewHolder ->{viewHolder.initViewHolder(repo = repo, onClickListener)}
-            is RepoViewHolderMostForked ->{viewHolder.initViewHolder(repo = repo, onClickListener)}
+            is RepoViewHolder ->{viewHolder.initViewHolder(repo = repo)}
+            is RepoViewHolderMostForked ->{viewHolder.initViewHolder(repo = repo)}
         }
     }
 
@@ -58,5 +58,6 @@ class RepoAdapter(private val adapterManager: AdapterManager,  private val onCli
 
     interface AdapterManager {
         fun provideImageLoader(): ImageLoader
+        fun onClickListener(item: RepoItems)
     }
 }
