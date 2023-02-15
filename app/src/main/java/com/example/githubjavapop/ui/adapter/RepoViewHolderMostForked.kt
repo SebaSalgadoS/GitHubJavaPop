@@ -4,13 +4,12 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubjavapop.data.model.retrofit.RepoItems
 import com.example.githubjavapop.databinding.ItemsReposBinding
-import com.squareup.picasso.Picasso
 
 class RepoViewHolderMostForked(view: View,private val adapterManager: RepoAdapter.AdapterManager) : RecyclerView.ViewHolder(view) {
 
     private val binding = ItemsReposBinding.bind(view)
 
-    fun initViewHolder(repo: RepoItems,onClickListener:(RepoItems) -> Unit) = with(binding){
+    fun initViewHolder(repo: RepoItems) = with(binding){
 
             txtRepoName.text = repo.repoName
             txtRepoDescription.text = repo.repoDescription
@@ -19,7 +18,7 @@ class RepoViewHolderMostForked(view: View,private val adapterManager: RepoAdapte
             txtRepoUsername.text = repo.repoOwner.ownerName
 
         repoContent.setOnClickListener {
-            onClickListener(repo)
+            adapterManager.onClickListener(repo)
         }
 
         adapterManager.provideImageLoader().loadPicasso(repo.repoOwner.ownerAvatar, imgRepoUser)
