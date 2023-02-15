@@ -33,13 +33,14 @@ class FragmentRepoView : Fragment() {
     private val repoViewModel: FragmentRepoViewModel by viewModels()
     private val binding by lazy { FragmentRepoViewBinding.inflate(layoutInflater) }
     private val repoAdapter by lazy {
-        RepoAdapter(adapterManager = RepoManager()) { repos ->
-            onItemSelected(repos)
-        }
+        RepoAdapter(adapterManager = RepoManager())
     }
 
     inner class RepoManager : RepoAdapter.AdapterManager {
         override fun provideImageLoader(): ImageLoader = picasso
+        override fun onClickListener(item: RepoItems) {
+            onItemSelected(item)
+        }
     }
 
     override fun onCreateView(
