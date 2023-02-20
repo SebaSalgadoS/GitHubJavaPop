@@ -16,10 +16,7 @@ import com.example.githubjavapop.data.model.retrofit.PullsModel
 import com.example.githubjavapop.databinding.FragmentPullsViewBinding
 import com.example.githubjavapop.ui.adapter.PullsAdapter
 import com.example.githubjavapop.ui.viewmodel.FragmentPullsViewModel
-import com.example.githubjavapop.utils.ERROR_STATE
-import com.example.githubjavapop.utils.ImageLoader
-import com.example.githubjavapop.utils.LOADING_STATE
-import com.example.githubjavapop.utils.SUCCESS_STATE
+import com.example.githubjavapop.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -56,6 +53,7 @@ class FragmentPullsView : Fragment() {
         initVIewModel()
         initObserver()
         initToolBar()
+        initSwipeRefresh()
 
     }
 
@@ -87,12 +85,29 @@ class FragmentPullsView : Fragment() {
     }
 
     private fun initToolBar() {
-        binding.iconBack.setOnClickListener { findNavController().navigateUp() }
+        binding.iconBack.setBackAction()
+        //binding.iconBack.setOnClickListener { findNavController().navigateUp() }
         binding.viewTittle.text = args.repositoriesTitle
     }
 
+    val bloque: (body: ApiState<List<PullsModel>, String>) -> Unit ={ state ->
+        when (state) {
+            is ApiState.Loading -> {
+                binding.viewFlipper.displayedChild = LOADING_STATE
+            }
+            is ApiState.Error -> {
+                binding.viewFlipper.displayedChild = ERROR_STATE
+                binding.txtError.text = state.error
+            }
+            is ApiState.Success -> {
+                binding.viewFlipper.displayedChild = SUCCESS_STATE
+                pullsAdapter.updateAdapter(state.value)
+            }
+        }
+    }
+
     private fun initObserver() {
-        observe(pullViewModel.pullsRequestModel, this@FragmentPullsView::handleState)
+        observe(pullViewModel.pullsRequestModel, bloque)
     }
 
     private fun initRecyclerView() {
@@ -103,6 +118,13 @@ class FragmentPullsView : Fragment() {
 
     private fun initVIewModel() {
         pullViewModel.getAllPulls(user = args.repositoriesUser, repo = args.repositoriesTitle)
+    }
+
+    private fun initSwipeRefresh() = with(binding){
+        pullSwipeRefresh.onRefreshList{
+            pullViewModel.pullsRequestModel.clearList()
+            initVIewModel()
+        }
     }
 
 }
