@@ -14,13 +14,10 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.githubjavapop.data.model.ApiState
 import com.example.githubjavapop.data.model.retrofit.RepoItems
-import com.example.githubjavapop.utils.ImageLoader
 import com.example.githubjavapop.databinding.FragmentRepoViewBinding
 import com.example.githubjavapop.ui.adapter.RepoAdapter
 import com.example.githubjavapop.ui.viewmodel.FragmentRepoViewModel
-import com.example.githubjavapop.utils.ERROR_STATE
-import com.example.githubjavapop.utils.LOADING_STATE
-import com.example.githubjavapop.utils.SUCCESS_STATE
+import com.example.githubjavapop.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -57,6 +54,7 @@ class FragmentRepoView : Fragment() {
         initRecyclerView()
         initViewModel()
         initObserver()
+        initSwipeRefresh()
 
     }
 
@@ -68,7 +66,6 @@ class FragmentRepoView : Fragment() {
         findNavController().navigate(action)
     }
 
-    // extension de lifecycleowner
     fun <T, L : MutableLiveData<T>> LifecycleOwner.observe(liveData: L, body: (T) -> Unit) =
         liveData.observe(this, Observer(body))
 
@@ -104,5 +101,12 @@ class FragmentRepoView : Fragment() {
 
     private fun Context.generateToast() {
         Toast.makeText(this, "Holaa :D", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun initSwipeRefresh() = with(binding){
+        repoSwipeRefresh.onRefreshList {
+            repoViewModel.repositoryModel.clearList()
+            initViewModel()
+        }
     }
 }
