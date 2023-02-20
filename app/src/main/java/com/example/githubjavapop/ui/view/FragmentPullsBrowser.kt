@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.githubjavapop.databinding.FragmentPullsBrowserBinding
+import com.example.githubjavapop.utils.setBackAction
 
 class FragmentPullsBrowser : Fragment() {
 
@@ -27,17 +28,19 @@ class FragmentPullsBrowser : Fragment() {
 
     }
 
-    fun initToolbar(){
+    fun initToolbar() {
         setBackUpButton()
         initToolbarTitle()
     }
 
     private fun initWebView() = binding.myBrowser.loadUrl(args.urlPulls)
 
-    private fun initToolbarTitle() { binding.viewTittle.text = args.pullsTitle }
+    private fun initToolbarTitle() {
+        binding.viewTittle.text = args.pullsTitle
+    }
 
-    private fun setBackUpButton(){
-        binding.iconBack.setOnClickListener { findNavController().navigateUp() }
+    private fun setBackUpButton() {
+        binding.iconBack.setBackAction()
     }
 
 }

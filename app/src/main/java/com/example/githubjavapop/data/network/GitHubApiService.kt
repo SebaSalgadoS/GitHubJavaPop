@@ -2,7 +2,9 @@ package com.example.githubjavapop.data.network
 
 
 import com.example.githubjavapop.data.model.retrofit.PullsModel
+import com.example.githubjavapop.data.model.retrofit.RepoItems
 import com.example.githubjavapop.data.model.retrofit.RepoModel
+import com.google.gson.annotations.SerializedName
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

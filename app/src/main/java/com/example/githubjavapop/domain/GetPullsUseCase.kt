@@ -1,10 +1,13 @@
 package com.example.githubjavapop.domain
 
+import android.util.Log
 import com.example.githubjavapop.data.model.ApiState
 import com.example.githubjavapop.data.model.retrofit.PullsModel
+import com.example.githubjavapop.data.model.retrofit.RepoItems
 import com.example.githubjavapop.data.network.GitHubApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import retrofit2.Response
 import javax.inject.Inject
 
 class GetPullsUseCase@Inject constructor(private val apiService: GitHubApiService) {
@@ -26,4 +29,5 @@ class GetPullsUseCase@Inject constructor(private val apiService: GitHubApiServic
             }
         }
     }
+
 }
