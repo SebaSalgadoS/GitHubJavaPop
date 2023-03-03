@@ -12,6 +12,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.example.githubjavapop.R
 import com.example.githubjavapop.data.model.ApiState
 import com.example.githubjavapop.data.model.retrofit.RepoItems
 import com.example.githubjavapop.databinding.FragmentRepoViewBinding
@@ -50,7 +51,6 @@ class FragmentRepoView : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        context?.generateToast()
         initRecyclerView()
         initViewModel()
         initObserver()
@@ -76,7 +76,14 @@ class FragmentRepoView : Fragment() {
             }
             is ApiState.Error -> {
                 binding.viewFlipper.displayedChild = ERROR_STATE
-                binding.txtError.text = state.error
+                when (state.error) {
+                    NO_DATA -> {
+                        binding.txtError.text = getString(R.string.error_no_data_repo)
+                    }
+                    LIST_EMPTY -> {
+                        binding.txtError.text = getString(R.string.error_load_list_repo)
+                    }
+                }
             }
             is ApiState.Success -> {
                 binding.viewFlipper.displayedChild = SUCCESS_STATE
@@ -99,11 +106,7 @@ class FragmentRepoView : Fragment() {
         recyclerView.adapter = repoAdapter
     }
 
-    private fun Context.generateToast() {
-        Toast.makeText(this, "Holaa :D", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun initSwipeRefresh() = with(binding){
+    private fun initSwipeRefresh() = with(binding) {
         repoSwipeRefresh.onRefreshList {
             repoViewModel.repositoryModel.clearList()
             initViewModel()

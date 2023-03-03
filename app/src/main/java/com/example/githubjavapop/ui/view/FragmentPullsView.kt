@@ -11,6 +11,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.githubjavapop.R
 import com.example.githubjavapop.data.model.ApiState
 import com.example.githubjavapop.data.model.retrofit.PullsModel
 import com.example.githubjavapop.databinding.FragmentPullsViewBinding
@@ -18,6 +19,7 @@ import com.example.githubjavapop.ui.adapter.PullsAdapter
 import com.example.githubjavapop.ui.viewmodel.FragmentPullsViewModel
 import com.example.githubjavapop.utils.*
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.internal.EMPTY_BYTE_ARRAY
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -90,14 +92,21 @@ class FragmentPullsView : Fragment() {
         binding.viewTittle.text = args.repositoriesTitle
     }
 
-    val bloque: (body: ApiState<List<PullsModel>, String>) -> Unit ={ state ->
+    val bloque: (body: ApiState<List<PullsModel>, String>) -> Unit = { state ->
         when (state) {
             is ApiState.Loading -> {
                 binding.viewFlipper.displayedChild = LOADING_STATE
             }
             is ApiState.Error -> {
                 binding.viewFlipper.displayedChild = ERROR_STATE
-                binding.txtError.text = state.error
+                when (state.error) {
+                    NO_DATA -> {
+                        binding.txtError.text = getString(R.string.error_load_data_pulls)
+                    }
+                    LIST_EMPTY -> {
+                        binding.txtError.text = getString(R.string.error_load_list_pulls)
+                    }
+                }
             }
             is ApiState.Success -> {
                 binding.viewFlipper.displayedChild = SUCCESS_STATE
@@ -120,8 +129,8 @@ class FragmentPullsView : Fragment() {
         pullViewModel.getAllPulls(user = args.repositoriesUser, repo = args.repositoriesTitle)
     }
 
-    private fun initSwipeRefresh() = with(binding){
-        pullSwipeRefresh.onRefreshList{
+    private fun initSwipeRefresh() = with(binding) {
+        pullSwipeRefresh.onRefreshList {
             pullViewModel.pullsRequestModel.clearList()
             initVIewModel()
         }
