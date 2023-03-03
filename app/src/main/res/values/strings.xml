@@ -37,4 +37,10 @@
     <string name="browser_icon_toolbar">Browser icon Toolbar</string>
     <string name="browser_icon_back">Browser icon Back</string>
 
+    <!-- Error Messages -->
+    <string name="error_load_list_repo">This language does not have repositories</string>
+    <string name="error_no_data_repo">Error loading repositories</string>
+    <string name="error_load_list_pulls">This repository does not have pull request</string>
+    <string name="error_load_data_pulls">ERROR loading pulls request</string>
+
 </resources>
