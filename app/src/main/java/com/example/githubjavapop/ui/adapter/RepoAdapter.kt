@@ -37,6 +37,7 @@ class RepoAdapter(private val adapterManager: AdapterManager): RecyclerView.Adap
         return items.size
     }
 
+    //TODO sacar la logica al modelo
     override fun getItemViewType(position: Int): Int {
         val repo = items[position]
         return when{
