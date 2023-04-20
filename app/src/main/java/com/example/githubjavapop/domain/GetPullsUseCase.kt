@@ -8,13 +8,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class GetPullsUseCase@Inject constructor(private val apiService: GitHubApiService) {
+class GetPullsUseCase @Inject constructor(private val apiService: GitHubApiService) {
 
-    suspend fun loadPullList(user: String , repo: String): ApiState<List<PullsModel>, String>{
-        return withContext(Dispatchers.IO){
+    suspend fun loadPullList(user: String, repo: String): ApiState<List<PullsModel>, String> {
+        return withContext(Dispatchers.IO) {
             val response = apiService.getPullRequest(
                 user = user,
-                repo = repo)
+                repo = repo
+            )
             response.apiResponse()
         }
     }

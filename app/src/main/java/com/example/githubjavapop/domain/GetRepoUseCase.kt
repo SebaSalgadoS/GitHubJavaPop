@@ -10,13 +10,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class GetRepoUseCase@Inject constructor(private val apiService: GitHubApiService) {
+class GetRepoUseCase @Inject constructor(private val apiService: GitHubApiService) {
 
-    suspend fun loadList(): ApiState<List<RepoItems>, String>{
-        return withContext(Dispatchers.IO){
-            val response = apiService.getAllRepositories()
-            response.toRepoMapperResponse().apiResponse()
-        }
+    suspend fun loadList(): ApiState<List<RepoItems>, String> {
+        val response = apiService.getAllRepositories()
+        return response.toRepoMapperResponse().apiResponse()
     }
 
 }
