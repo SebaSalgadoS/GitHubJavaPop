@@ -9,4 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="azul_marino">#00304E</color>
     <color name="github_background">#161B22</color>
+    <color name="cardview_background">#EAE6CA</color>
+    <color name="white_signal">#F4F4F4</color>
+    <color name="verde_oscuro">#00722E</color>
+    <color name="github_gris">#30363d</color>
+    <color name="github_grisV2">#484f58</color>
+    <color name="github_white">#e6edf3</color>
 </resources>
