@@ -1,7 +1,12 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'org.jetbrains.kotlin.kapt'
 }
+
+apply from:"../common_gradle/hilt.gradle"
 
 android {
     namespace 'com.example.login'
